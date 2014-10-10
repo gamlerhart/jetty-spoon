@@ -1,0 +1,5 @@
+from jre:7.51
+using wget 7zip
+# cmd if NOT DEFINED VERSION  echo "Please specify the %%VERSION%% environment variable" & exit /b 1
+cmd ("C:\Windows\System32\cmd.exe","/c", "SET /p VERSION=<version-tag.txt && cmd /c %%VERSION%%")
+cmd ("C:\Windows\System32\cmd.exe","/c", "echo Hi there %VERSION%")
