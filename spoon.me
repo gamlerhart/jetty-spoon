@@ -1,5 +1,15 @@
 from jre:7.51
 using wget 7zip
-# cmd if NOT DEFINED VERSION  echo "Please specify the %%VERSION%% environment variable" & exit /b 1
-cmd ("C:\Windows\System32\cmd.exe","/c", "SET /p VERSION=<version-tag.txt && cmd /c %%VERSION%%")
-cmd ("C:\Windows\System32\cmd.exe","/c", "echo Hi there %VERSION%")
+cmd if NOT DEFINED VERSION  echo "Please specify the %%VERSION%% environment variable" & exit /b 1
+cmd %spn_wget% http://carroll.aset.psu.edu/pub/eclipse/jetty/%VERSION%/dist/jetty-distribution-%VERSION%.zip -O jetty.zip
+cmd %spn_7z% x jetty.zip -oC:\Jetty\
+cmd del jetty.zip
+
+
+env JAVA_HOME="@PROGRAMFILESX86@\Java\jre7"
+env JETTY_HOME=C:\Jetty\jetty-distribution-%VERSION%
+env WEB_APPS=C:\Jetty\jetty-distribution-%VERSION%\webapps
+
+cmd copy .\run-jetty-bat.bat C:\Jetty\run-jetty-bat.bat
+
+startup file ("C:\Jetty\run-jetty-bat.bat")
