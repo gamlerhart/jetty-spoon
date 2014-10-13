@@ -1,4 +1,10 @@
 {
 	"platform": "32-bit",
 	"notify-email":"roman@spoon.net"
+	  "version-reader": {
+		"type":"maven",
+		"group":"org.eclipse.jetty",
+		"artifactId":"jetty-server",
+		"repo":"http://repo1.maven.org/maven2/"
+	  }
 }
