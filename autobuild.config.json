@@ -5,6 +5,7 @@
 		"type":"maven",
 		"group":"org.eclipse.jetty",
 		"artifactId":"jetty-server",
+		"filter":".*\\.v.*",
 		"repo":"http://repo1.maven.org/maven2/"
 	  }
 }
